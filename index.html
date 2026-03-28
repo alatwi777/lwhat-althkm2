@@ -23,8 +23,6 @@
             --gray-color: #6c757d;
             --light-gray: #e9ecef;
             --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            --hover-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             --border-radius: 16px;
             --sidebar-width: 280px;
         }
@@ -41,7 +39,6 @@
             color: var(--dark-color);
             direction: rtl;
             min-height: 100vh;
-            overflow-x: hidden;
         }
         
         .header {
@@ -56,7 +53,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            backdrop-filter: blur(10px);
         }
         
         .header-content {
@@ -74,20 +70,11 @@
             align-items: center;
             justify-content: center;
             font-size: 28px;
-            backdrop-filter: blur(5px);
-            border: 2px solid rgba(255, 255, 255, 0.2);
         }
         
         .header-title h1 {
             font-size: 1.8rem;
             font-weight: 700;
-            margin-bottom: 5px;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-        
-        .header-title p {
-            opacity: 0.9;
-            font-size: 1rem;
         }
         
         .live-indicator {
@@ -99,8 +86,6 @@
             align-items: center;
             gap: 8px;
             animation: pulse 1.5s infinite;
-            box-shadow: 0 4px 10px rgba(239, 71, 111, 0.3);
-            border: 2px solid rgba(255, 255, 255, 0.3);
         }
         
         @keyframes pulse {
@@ -127,7 +112,6 @@
             height: fit-content;
             position: sticky;
             top: 100px;
-            border: 1px solid var(--light-gray);
         }
         
         .section-title {
@@ -142,16 +126,11 @@
             border-bottom: 2px solid var(--light-gray);
         }
         
-        .section-title i {
-            color: var(--secondary-color);
-        }
-        
         .test-filter-card {
             background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
             border-radius: 12px;
             padding: 20px;
             margin-bottom: 25px;
-            border: 2px solid rgba(67, 97, 238, 0.1);
         }
         
         .test-select {
@@ -161,22 +140,8 @@
             border: 2px solid var(--light-gray);
             background: white;
             font-size: 1rem;
-            font-weight: 500;
-            color: var(--dark-color);
-            transition: var(--transition);
             margin-bottom: 15px;
             cursor: pointer;
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%234361ee' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: left 18px center;
-            padding-left: 45px;
-        }
-        
-        .test-select:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
         }
         
         .test-info {
@@ -190,29 +155,6 @@
         
         .test-info.active {
             display: block;
-            animation: fadeIn 0.5s ease;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .test-detail {
-            display: flex;
-            margin-bottom: 8px;
-        }
-        
-        .test-detail-label {
-            font-weight: 600;
-            color: var(--gray-color);
-            min-width: 80px;
-            font-size: 0.9rem;
-        }
-        
-        .test-detail-value {
-            color: var(--dark-color);
-            font-weight: 500;
         }
         
         .status-filters {
@@ -230,20 +172,13 @@
             border-radius: 10px;
             background: white;
             cursor: pointer;
-            transition: var(--transition);
             border: 2px solid var(--light-gray);
             font-weight: 500;
         }
         
-        .status-filter:hover {
-            transform: translateX(-5px);
-            border-color: var(--primary-color);
-            background: #f8f9ff;
-        }
-        
         .status-filter.active {
             border-color: var(--primary-color);
-            background: linear-gradient(135deg, rgba(67, 97, 238, 0.1) 0%, rgba(114, 9, 183, 0.1) 100%);
+            background: rgba(67, 97, 238, 0.05);
         }
         
         .status-icon {
@@ -257,21 +192,10 @@
             color: white;
         }
         
-        .status-testing .status-icon {
-            background: linear-gradient(135deg, var(--info-color) 0%, #17a2b8 100%);
-        }
-        
-        .status-finished .status-icon {
-            background: linear-gradient(135deg, var(--success-color) 0%, #06d6a0 100%);
-        }
-        
-        .status-absent .status-icon {
-            background: linear-gradient(135deg, var(--danger-color) 0%, #ef476f 100%);
-        }
-        
-        .status-all .status-icon {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-        }
+        .status-testing .status-icon { background: var(--info-color); }
+        .status-finished .status-icon { background: var(--success-color); }
+        .status-absent .status-icon { background: var(--danger-color); }
+        .status-all .status-icon { background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); }
         
         .status-count {
             margin-right: auto;
@@ -280,8 +204,6 @@
             border-radius: 20px;
             font-size: 0.9rem;
             font-weight: 700;
-            min-width: 45px;
-            text-align: center;
         }
         
         .search-box {
@@ -295,14 +217,6 @@
             border-radius: 10px;
             border: 2px solid var(--light-gray);
             font-size: 1rem;
-            transition: var(--transition);
-            background: white;
-        }
-        
-        .search-input:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
         }
         
         .search-icon {
@@ -311,7 +225,6 @@
             top: 50%;
             transform: translateY(-50%);
             color: var(--gray-color);
-            font-size: 1.2rem;
         }
         
         .action-buttons {
@@ -326,9 +239,7 @@
             border-radius: 10px;
             border: none;
             font-weight: 600;
-            font-size: 1rem;
             cursor: pointer;
-            transition: var(--transition);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -336,25 +247,14 @@
         }
         
         .btn-primary {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
             color: white;
-            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
-        }
-        
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.4);
         }
         
         .btn-secondary {
             background: white;
             color: var(--primary-color);
             border: 2px solid var(--primary-color);
-        }
-        
-        .btn-secondary:hover {
-            background: var(--primary-color);
-            color: white;
         }
         
         .content {
@@ -375,35 +275,16 @@
             border-radius: var(--border-radius);
             padding: 25px;
             box-shadow: var(--card-shadow);
-            transition: var(--transition);
             border-top: 6px solid;
             display: flex;
             align-items: center;
             gap: 20px;
-            position: relative;
-            overflow: hidden;
         }
         
-        .stat-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--hover-shadow);
-        }
-        
-        .stat-card.total {
-            border-color: var(--primary-color);
-        }
-        
-        .stat-card.testing {
-            border-color: var(--info-color);
-        }
-        
-        .stat-card.finished {
-            border-color: var(--success-color);
-        }
-        
-        .stat-card.absent {
-            border-color: var(--danger-color);
-        }
+        .stat-card.total { border-color: var(--primary-color); }
+        .stat-card.testing { border-color: var(--info-color); }
+        .stat-card.finished { border-color: var(--success-color); }
+        .stat-card.absent { border-color: var(--danger-color); }
         
         .stat-icon {
             width: 70px;
@@ -414,66 +295,28 @@
             justify-content: center;
             font-size: 32px;
             color: white;
-            flex-shrink: 0;
         }
         
-        .stat-card.total .stat-icon {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-        }
-        
-        .stat-card.testing .stat-icon {
-            background: linear-gradient(135deg, var(--info-color) 0%, #17a2b8 100%);
-        }
-        
-        .stat-card.finished .stat-icon {
-            background: linear-gradient(135deg, var(--success-color) 0%, #06d6a0 100%);
-        }
-        
-        .stat-card.absent .stat-icon {
-            background: linear-gradient(135deg, var(--danger-color) 0%, #ef476f 100%);
-        }
-        
-        .stat-content {
-            flex: 1;
-        }
+        .stat-card.total .stat-icon { background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)); }
+        .stat-card.testing .stat-icon { background: var(--info-color); }
+        .stat-card.finished .stat-icon { background: var(--success-color); }
+        .stat-card.absent .stat-icon { background: var(--danger-color); }
         
         .stat-number {
             font-size: 2.5rem;
             font-weight: 800;
-            line-height: 1;
-            margin-bottom: 5px;
         }
         
-        .stat-card.total .stat-number {
-            color: var(--primary-color);
-        }
-        
-        .stat-card.testing .stat-number {
-            color: var(--info-color);
-        }
-        
-        .stat-card.finished .stat-number {
-            color: var(--success-color);
-        }
-        
-        .stat-card.absent .stat-number {
-            color: var(--danger-color);
-        }
-        
-        .stat-label {
-            font-size: 1.1rem;
-            color: var(--gray-color);
-            font-weight: 500;
-        }
+        .stat-card.total .stat-number { color: var(--primary-color); }
+        .stat-card.testing .stat-number { color: var(--info-color); }
+        .stat-card.finished .stat-number { color: var(--success-color); }
+        .stat-card.absent .stat-number { color: var(--danger-color); }
         
         .live-section {
-            background: linear-gradient(135deg, #e3f2ff 0%, #d6e7ff 100%);
+            background: linear-gradient(135deg, #e3f2ff, #d6e7ff);
             border-radius: var(--border-radius);
             padding: 25px;
-            box-shadow: var(--card-shadow);
-            border: 2px solid rgba(67, 97, 238, 0.2);
             position: relative;
-            overflow: hidden;
         }
         
         .live-section::before {
@@ -487,7 +330,6 @@
             border-radius: 30px;
             font-size: 0.9rem;
             font-weight: 700;
-            z-index: 1;
             animation: pulse 1.5s infinite;
         }
         
@@ -498,24 +340,11 @@
             margin-bottom: 25px;
         }
         
-        .section-header h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-dark);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
         .live-count {
             background: white;
             padding: 10px 25px;
             border-radius: 30px;
             font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--primary-color);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border: 2px solid rgba(67, 97, 238, 0.1);
         }
         
         .live-students-grid {
@@ -528,61 +357,23 @@
             background: white;
             border-radius: 14px;
             padding: 20px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-            border-left: 5px solid var(--info-color);
             display: flex;
             align-items: center;
             gap: 15px;
-        }
-        
-        .live-student-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid var(--info-color);
         }
         
         .live-student-avatar {
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--info-color) 0%, #17a2b8 100%);
+            background: linear-gradient(135deg, var(--info-color), #17a2b8);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 24px;
             color: white;
             font-weight: 700;
-            flex-shrink: 0;
-        }
-        
-        .live-student-info {
-            flex: 1;
-        }
-        
-        .live-student-name {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--dark-color);
-            margin-bottom: 5px;
-        }
-        
-        .live-student-details {
-            display: flex;
-            flex-direction: column;
-            gap: 4px;
-            font-size: 0.9rem;
-            color: var(--gray-color);
-        }
-        
-        .live-student-time {
-            background: rgba(67, 97, 238, 0.1);
-            color: var(--primary-color);
-            padding: 6px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-top: 8px;
-            display: inline-block;
         }
         
         .students-section {
@@ -590,49 +381,6 @@
             border-radius: var(--border-radius);
             padding: 25px;
             box-shadow: var(--card-shadow);
-        }
-        
-        .students-filter-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .students-count {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: var(--primary-color);
-            background: rgba(67, 97, 238, 0.1);
-            padding: 8px 20px;
-            border-radius: 30px;
-        }
-        
-        .view-toggle {
-            display: flex;
-            gap: 10px;
-            background: var(--light-gray);
-            padding: 5px;
-            border-radius: 10px;
-        }
-        
-        .view-btn {
-            padding: 10px 20px;
-            border-radius: 8px;
-            border: none;
-            background: transparent;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            color: var(--gray-color);
-        }
-        
-        .view-btn.active {
-            background: white;
-            color: var(--primary-color);
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
         }
         
         .students-grid {
@@ -646,14 +394,6 @@
             border-radius: 16px;
             overflow: hidden;
             box-shadow: var(--card-shadow);
-            transition: var(--transition);
-            border: 2px solid transparent;
-        }
-        
-        .student-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--hover-shadow);
-            border-color: rgba(67, 97, 238, 0.2);
         }
         
         .student-status-bar {
@@ -661,17 +401,9 @@
             width: 100%;
         }
         
-        .student-status-testing {
-            background: linear-gradient(90deg, var(--info-color) 0%, #17a2b8 100%);
-        }
-        
-        .student-status-finished {
-            background: linear-gradient(90deg, var(--success-color) 0%, #06d6a0 100%);
-        }
-        
-        .student-status-absent {
-            background: linear-gradient(90deg, var(--danger-color) 0%, #ef476f 100%);
-        }
+        .student-status-testing { background: var(--info-color); }
+        .student-status-finished { background: var(--success-color); }
+        .student-status-absent { background: var(--danger-color); }
         
         .student-card-content {
             padding: 25px;
@@ -693,66 +425,12 @@
             justify-content: center;
             font-size: 28px;
             color: white;
-            font-weight: 700;
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            flex-shrink: 0;
-        }
-        
-        .student-main-info {
-            flex: 1;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
         }
         
         .student-name {
             font-size: 1.4rem;
             font-weight: 700;
-            color: var(--dark-color);
-            margin-bottom: 5px;
-        }
-        
-        .student-id {
-            color: var(--gray-color);
-            font-size: 0.95rem;
-        }
-        
-        .student-details {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-bottom: 20px;
-        }
-        
-        .student-detail {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .detail-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(67, 97, 238, 0.1);
-            color: var(--primary-color);
-            font-size: 1.1rem;
-            flex-shrink: 0;
-        }
-        
-        .detail-content {
-            flex: 1;
-        }
-        
-        .detail-label {
-            font-size: 0.85rem;
-            color: var(--gray-color);
-            margin-bottom: 2px;
-        }
-        
-        .detail-value {
-            font-weight: 600;
-            color: var(--dark-color);
         }
         
         .student-status {
@@ -764,37 +442,9 @@
             margin-top: 15px;
         }
         
-        .student-status.testing {
-            background: rgba(23, 162, 184, 0.1);
-            color: var(--info-color);
-        }
-        
-        .student-status.finished {
-            background: rgba(6, 214, 160, 0.1);
-            color: var(--success-color);
-        }
-        
-        .student-status.absent {
-            background: rgba(239, 71, 111, 0.1);
-            color: var(--danger-color);
-        }
-        
-        .status-content {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-        
-        .status-time {
-            background: white;
-            padding: 6px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
-        }
+        .student-status.testing { background: rgba(23, 162, 184, 0.1); color: var(--info-color); }
+        .student-status.finished { background: rgba(6, 214, 160, 0.1); color: var(--success-color); }
+        .student-status.absent { background: rgba(239, 71, 111, 0.1); color: var(--danger-color); }
         
         /* قسم الأجهزة المتصلة */
         .devices-section {
@@ -822,10 +472,6 @@
             gap: 10px;
         }
         
-        .devices-title i {
-            color: var(--secondary-color);
-        }
-        
         .devices-count {
             background: rgba(67, 97, 238, 0.1);
             padding: 8px 20px;
@@ -847,13 +493,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            transition: var(--transition);
             border-right: 4px solid var(--primary-color);
-        }
-        
-        .device-card:hover {
-            transform: translateX(-5px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
         }
         
         .device-card.warning {
@@ -861,14 +501,9 @@
             border-right-color: var(--danger-color);
         }
         
-        .device-info {
-            flex: 1;
-        }
-        
         .device-student-name {
             font-weight: 700;
             font-size: 1.1rem;
-            color: var(--dark-color);
             margin-bottom: 5px;
         }
         
@@ -887,14 +522,8 @@
             font-weight: 600;
         }
         
-        .device-count.normal {
-            color: var(--success-color);
-        }
-        
-        .device-count.warning {
-            color: var(--danger-color);
-            background: rgba(239, 71, 111, 0.2);
-        }
+        .device-count.normal { color: var(--success-color); }
+        .device-count.warning { color: var(--danger-color); background: rgba(239, 71, 111, 0.2); }
         
         .device-warning-badge {
             background: var(--danger-color);
@@ -917,17 +546,6 @@
             margin-bottom: 20px;
         }
         
-        .empty-state h3 {
-            font-size: 1.8rem;
-            color: var(--gray-color);
-            margin-bottom: 15px;
-        }
-        
-        .empty-state p {
-            color: var(--gray-color);
-            font-size: 1.1rem;
-        }
-        
         .alert {
             position: fixed;
             bottom: 30px;
@@ -936,183 +554,18 @@
             border-radius: 14px;
             font-weight: 600;
             z-index: 1000;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             display: flex;
             align-items: center;
             gap: 15px;
             transform: translateX(150%);
-            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            transition: transform 0.5s;
             max-width: 400px;
         }
         
-        .alert.show {
-            transform: translateX(0);
-        }
-        
-        .alert-success {
-            background: linear-gradient(135deg, rgba(6, 214, 160, 0.95) 0%, rgba(6, 214, 160, 0.85) 100%);
-            color: white;
-        }
-        
-        .alert-warning {
-            background: linear-gradient(135deg, rgba(255, 209, 102, 0.95) 0%, rgba(255, 209, 102, 0.85) 100%);
-            color: var(--dark-color);
-        }
-        
-        .alert-danger {
-            background: linear-gradient(135deg, rgba(239, 71, 111, 0.95) 0%, rgba(239, 71, 111, 0.85) 100%);
-            color: white;
-        }
-        
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(5px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 2000;
-            padding: 20px;
-        }
-        
-        .modal-content {
-            background: white;
-            border-radius: var(--border-radius);
-            width: 95%;
-            max-width: 1400px;
-            max-height: 90vh;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            animation: slideUp 0.4s ease;
-        }
-        
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        .modal-header {
-            padding: 25px 30px;
-            border-bottom: 1px solid var(--light-gray);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: linear-gradient(135deg, #f8f9ff 0%, #f0f2ff 100%);
-            border-radius: var(--border-radius) var(--border-radius) 0 0;
-        }
-        
-        .modal-header h3 {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .modal-close {
-            background: rgba(239, 71, 111, 0.1);
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--danger-color);
-            cursor: pointer;
-            transition: var(--transition);
-            font-size: 1.2rem;
-        }
-        
-        .modal-close:hover {
-            background: var(--danger-color);
-            color: white;
-            transform: rotate(90deg);
-        }
-        
-        .modal-body {
-            flex: 1;
-            overflow: auto;
-        }
-        
-        .table-container {
-            overflow-x: auto;
-        }
-        
-        .students-table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 800px;
-        }
-        
-        .students-table thead {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
-            color: white;
-            position: sticky;
-            top: 0;
-        }
-        
-        .students-table th {
-            padding: 18px 20px;
-            text-align: center;
-            font-weight: 600;
-        }
-        
-        .students-table td {
-            padding: 15px 20px;
-            border-bottom: 1px solid var(--light-gray);
-            text-align: center;
-        }
-        
-        .students-table td:first-child {
-            text-align: right;
-            font-weight: 600;
-        }
-        
-        .test-status-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-            font-size: 1.2rem;
-        }
-        
-        .test-status-icon.success {
-            background: rgba(6, 214, 160, 0.1);
-            color: var(--success-color);
-        }
-        
-        .test-status-icon.info {
-            background: rgba(23, 162, 184, 0.1);
-            color: var(--info-color);
-        }
-        
-        .test-status-icon.danger {
-            background: rgba(239, 71, 111, 0.1);
-            color: var(--danger-color);
-        }
-        
-        .modal-footer {
-            padding: 20px 30px;
-            border-top: 1px solid var(--light-gray);
-            text-align: left;
-            background: #f8f9fa;
-            border-radius: 0 0 var(--border-radius) var(--border-radius);
-        }
+        .alert.show { transform: translateX(0); }
+        .alert-success { background: var(--success-color); color: white; }
+        .alert-warning { background: var(--warning-color); color: var(--dark-color); }
+        .alert-danger { background: var(--danger-color); color: white; }
         
         .loading-overlay {
             position: fixed;
@@ -1135,35 +588,11 @@
             border-top: 6px solid var(--primary-color);
             border-radius: 50%;
             animation: spin 1s linear infinite;
-            margin-bottom: 25px;
         }
         
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
-        }
-        
-        .loading-text {
-            font-size: 1.3rem;
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-        
-        .progress-container {
-            width: 100%;
-            height: 6px;
-            background: var(--light-gray);
-            border-radius: 3px;
-            overflow: hidden;
-            margin-top: 10px;
-            display: none;
-        }
-        
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            width: 0%;
-            transition: width 0.3s ease;
         }
         
         .connection-status {
@@ -1177,64 +606,20 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
         }
         
-        .connection-online {
-            background: linear-gradient(135deg, rgba(6, 214, 160, 0.9) 0%, rgba(6, 214, 160, 0.8) 100%);
-            color: white;
-        }
-        
-        .connection-offline {
-            background: linear-gradient(135deg, rgba(239, 71, 111, 0.9) 0%, rgba(239, 71, 111, 0.8) 100%);
-            color: white;
-        }
+        .connection-online { background: var(--success-color); color: white; }
+        .connection-offline { background: var(--danger-color); color: white; }
         
         @media (max-width: 1200px) {
-            .main-container {
-                flex-direction: column;
-            }
-            .sidebar {
-                width: 100%;
-                position: static;
-            }
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            .main-container { flex-direction: column; }
+            .sidebar { width: 100%; position: static; }
         }
         
         @media (max-width: 768px) {
-            .header {
-                flex-direction: column;
-                gap: 15px;
-                text-align: center;
-            }
-            .header-content {
-                flex-direction: column;
-            }
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            .students-grid {
-                grid-template-columns: 1fr;
-            }
-            .live-students-grid {
-                grid-template-columns: 1fr;
-            }
-            .section-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-            .action-buttons {
-                flex-direction: column;
-            }
-            .main-container {
-                padding: 20px;
-            }
-            .devices-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+            .header { flex-direction: column; text-align: center; }
+            .stats-grid { grid-template-columns: 1fr; }
+            .students-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -1246,12 +631,11 @@
     
     <div id="loadingOverlay" class="loading-overlay">
         <div class="loading-spinner"></div>
-        <div class="loading-text">جاري تحميل البيانات</div>
-        <div class="loading-subtext">يرجى الانتظار...</div>
+        <div class="loading-text" style="margin-top: 20px;">جاري تحميل البيانات</div>
     </div>
     
     <div id="alert" class="alert">
-        <i id="alertIcon" class="fas fa-info-circle"></i>
+        <i id="alertIcon"></i>
         <div>
             <div id="alertTitle"></div>
             <div id="alertMessage"></div>
@@ -1260,9 +644,7 @@
     
     <header class="header">
         <div class="header-content">
-            <div class="logo">
-                <i class="fas fa-chalkboard-teacher"></i>
-            </div>
+            <div class="logo"><i class="fas fa-chalkboard-teacher"></i></div>
             <div class="header-title">
                 <h1>لوحة متابعة الطلاب</h1>
                 <p>نظام المتابعة الحية للاختبارات الإلكترونية</p>
@@ -1276,181 +658,73 @@
     
     <div class="main-container">
         <aside class="sidebar">
-            <div class="section-title">
-                <i class="fas fa-filter"></i>
-                <span>تصفية النتائج</span>
-            </div>
+            <div class="section-title"><i class="fas fa-filter"></i><span>تصفية النتائج</span></div>
             
             <div class="test-filter-card">
-                <h3 style="margin-bottom: 15px; color: var(--primary-color); font-size: 1.2rem;">
-                    <i class="fas fa-book-open"></i> اختر الاختبار
-                </h3>
+                <h3 style="margin-bottom: 15px;"><i class="fas fa-book-open"></i> اختر الاختبار</h3>
                 <select id="testFilter" class="test-select">
                     <option value="">جميع الاختبارات</option>
                 </select>
-                
-                <div class="progress-container" id="testProgress">
-                    <div class="progress-bar"></div>
-                </div>
-                
                 <div id="testInfo" class="test-info">
-                    <div class="test-detail">
-                        <span class="test-detail-label">المادة:</span>
-                        <span class="test-detail-value" id="testSubject">-</span>
-                    </div>
-                    <div class="test-detail">
-                        <span class="test-detail-label">كود الاختبار:</span>
-                        <span class="test-detail-value" id="testCode">-</span>
-                    </div>
-                    <div class="test-detail">
-                        <span class="test-detail-label">المعلم:</span>
-                        <span class="test-detail-value" id="testTeacher">-</span>
-                    </div>
-                    <div class="test-detail">
-                        <span class="test-detail-label">الزمن:</span>
-                        <span class="test-detail-value" id="testDuration">-</span>
-                    </div>
+                    <div class="test-detail"><span class="test-detail-label">المادة:</span><span id="testSubject">-</span></div>
+                    <div class="test-detail"><span class="test-detail-label">كود الاختبار:</span><span id="testCode">-</span></div>
+                    <div class="test-detail"><span class="test-detail-label">المعلم:</span><span id="testTeacher">-</span></div>
                 </div>
             </div>
             
-            <div class="section-title">
-                <i class="fas fa-user-check"></i>
-                <span>حالة الطالب</span>
-            </div>
-            
+            <div class="section-title"><i class="fas fa-user-check"></i><span>حالة الطالب</span></div>
             <div class="status-filters">
-                <div class="status-filter status-all active" data-status="">
-                    <div class="status-icon"><i class="fas fa-users"></i></div>
-                    <span>جميع الطلاب</span>
-                    <span class="status-count" id="countAll">0</span>
-                </div>
-                <div class="status-filter status-testing" data-status="testing">
-                    <div class="status-icon"><i class="fas fa-clock"></i></div>
-                    <span>يختبرون حالياً</span>
-                    <span class="status-count" id="countTesting">0</span>
-                </div>
-                <div class="status-filter status-finished" data-status="finished">
-                    <div class="status-icon"><i class="fas fa-check-circle"></i></div>
-                    <span>أنهوا الاختبار</span>
-                    <span class="status-count" id="countFinished">0</span>
-                </div>
-                <div class="status-filter status-absent" data-status="absent">
-                    <div class="status-icon"><i class="fas fa-user-times"></i></div>
-                    <span>غائبون</span>
-                    <span class="status-count" id="countAbsent">0</span>
-                </div>
+                <div class="status-filter status-all active" data-status=""><div class="status-icon"><i class="fas fa-users"></i></div><span>جميع الطلاب</span><span class="status-count" id="countAll">0</span></div>
+                <div class="status-filter status-testing" data-status="testing"><div class="status-icon"><i class="fas fa-clock"></i></div><span>يختبرون حالياً</span><span class="status-count" id="countTesting">0</span></div>
+                <div class="status-filter status-finished" data-status="finished"><div class="status-icon"><i class="fas fa-check-circle"></i></div><span>أنهوا الاختبار</span><span class="status-count" id="countFinished">0</span></div>
+                <div class="status-filter status-absent" data-status="absent"><div class="status-icon"><i class="fas fa-user-times"></i></div><span>غائبون</span><span class="status-count" id="countAbsent">0</span></div>
             </div>
             
-            <div class="section-title">
-                <i class="fas fa-user-graduate"></i>
-                <span>عرض جميع الطلاب</span>
-            </div>
             <button class="btn btn-secondary" id="allStudentsBtn" style="width: 100%; margin-bottom: 20px;">
-                <i class="fas fa-users"></i>
-                <span>عرض جميع الطلاب في الاختبارات</span>
+                <i class="fas fa-users"></i> عرض جميع الطلاب
             </button>
             
-            <div class="section-title">
-                <i class="fas fa-search"></i>
-                <span>بحث سريع</span>
-            </div>
+            <div class="section-title"><i class="fas fa-search"></i><span>بحث سريع</span></div>
             <div class="search-box">
                 <input type="text" id="searchInput" class="search-input" placeholder="ابحث عن طالب...">
                 <div class="search-icon"><i class="fas fa-search"></i></div>
             </div>
             
             <div class="action-buttons">
-                <button class="btn btn-primary" id="refreshBtn">
-                    <i class="fas fa-sync-alt"></i>
-                    <span>تحديث البيانات</span>
-                </button>
-                <button class="btn btn-secondary" id="liveToggleBtn">
-                    <i class="fas fa-circle" id="liveIcon"></i>
-                    <span id="liveText">المباشر: مفعل</span>
-                </button>
+                <button class="btn btn-primary" id="refreshBtn"><i class="fas fa-sync-alt"></i> تحديث</button>
+                <button class="btn btn-secondary" id="liveToggleBtn"><i class="fas fa-circle" id="liveIcon"></i><span id="liveText">مباشر</span></button>
             </div>
             
-            <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--light-gray);">
-                <div style="display: flex; align-items: center; justify-content: space-between; font-size: 0.9rem; color: var(--gray-color);">
+            <div style="margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--light-gray);">
+                <div style="display: flex; justify-content: space-between; font-size: 0.85rem;">
                     <span>آخر تحديث:</span>
-                    <span id="lastUpdateTime">جاري التحميل...</span>
-                </div>
-                <div style="font-size: 0.85rem; color: var(--gray-color); margin-top: 10px; text-align: center;">
-                    نظام الاختبارات الإلكترونية © 2024
+                    <span id="lastUpdateTime">--:--</span>
                 </div>
             </div>
         </aside>
         
         <main class="content">
             <div class="stats-grid">
-                <div class="stat-card total">
-                    <div class="stat-icon"><i class="fas fa-users"></i></div>
-                    <div class="stat-content">
-                        <div class="stat-number" id="totalStudentsStat">0</div>
-                        <div class="stat-label">إجمالي الطلاب</div>
-                    </div>
-                </div>
-                <div class="stat-card testing">
-                    <div class="stat-icon"><i class="fas fa-clock"></i></div>
-                    <div class="stat-content">
-                        <div class="stat-number" id="testingStudentsStat">0</div>
-                        <div class="stat-label">يختبرون حالياً</div>
-                    </div>
-                </div>
-                <div class="stat-card finished">
-                    <div class="stat-icon"><i class="fas fa-check-circle"></i></div>
-                    <div class="stat-content">
-                        <div class="stat-number" id="finishedStudentsStat">0</div>
-                        <div class="stat-label">أنهوا الاختبار</div>
-                    </div>
-                </div>
-                <div class="stat-card absent">
-                    <div class="stat-icon"><i class="fas fa-user-times"></i></div>
-                    <div class="stat-content">
-                        <div class="stat-number" id="absentStudentsStat">0</div>
-                        <div class="stat-label">غائبون</div>
-                    </div>
-                </div>
+                <div class="stat-card total"><div class="stat-icon"><i class="fas fa-users"></i></div><div class="stat-content"><div class="stat-number" id="totalStudentsStat">0</div><div class="stat-label">إجمالي الطلاب</div></div></div>
+                <div class="stat-card testing"><div class="stat-icon"><i class="fas fa-clock"></i></div><div class="stat-content"><div class="stat-number" id="testingStudentsStat">0</div><div class="stat-label">يختبرون حالياً</div></div></div>
+                <div class="stat-card finished"><div class="stat-icon"><i class="fas fa-check-circle"></i></div><div class="stat-content"><div class="stat-number" id="finishedStudentsStat">0</div><div class="stat-label">أنهوا الاختبار</div></div></div>
+                <div class="stat-card absent"><div class="stat-icon"><i class="fas fa-user-times"></i></div><div class="stat-content"><div class="stat-number" id="absentStudentsStat">0</div><div class="stat-label">غائبون</div></div></div>
             </div>
             
             <section class="live-section" id="liveSection">
-                <div class="section-header">
-                    <h3><i class="fas fa-bolt"></i> الطلاب المختبرون حالياً</h3>
-                    <div class="live-count" id="liveTestingCount">0 طالب</div>
-                </div>
+                <div class="section-header"><h3><i class="fas fa-bolt"></i> يختبرون الآن</h3><div class="live-count" id="liveTestingCount">0</div></div>
                 <div id="liveTestingStudents" class="live-students-grid"></div>
             </section>
             
             <section class="students-section">
-                <div class="section-header">
-                    <h3><i class="fas fa-user-graduate"></i> جميع الطلاب</h3>
-                    <div class="students-filter-bar">
-                        <div class="students-count" id="filteredStudentsCount">0 طالب</div>
-                        <div class="view-toggle">
-                            <button class="view-btn active" data-view="grid"><i class="fas fa-th-large"></i></button>
-                            <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
-                        </div>
-                    </div>
-                </div>
-                <div id="studentsContainer">
-                    <div class="students-grid" id="studentsGrid"></div>
-                </div>
+                <div class="section-header"><h3><i class="fas fa-user-graduate"></i> جميع الطلاب</h3><div class="students-count" id="filteredStudentsCount">0 طالب</div></div>
+                <div id="studentsGrid" class="students-grid"></div>
             </section>
             
-            <!-- قسم الأجهزة المتصلة -->
             <section class="devices-section">
                 <div class="devices-header">
-                    <div class="devices-title">
-                        <i class="fas fa-laptop"></i>
-                        <span>الأجهزة المتصلة</span>
-                    </div>
-                    <div>
-                        <button class="btn btn-secondary" id="refreshDevicesBtn" style="margin-left: 10px;">
-                            <i class="fas fa-sync-alt"></i>
-                            <span>تحديث الأجهزة</span>
-                        </button>
-                        <span class="devices-count" id="devicesCount">0 طالب</span>
-                    </div>
+                    <div class="devices-title"><i class="fas fa-laptop"></i><span>الأجهزة المتصلة</span></div>
+                    <div><button class="btn btn-secondary" id="refreshDevicesBtn"><i class="fas fa-sync-alt"></i> تحديث</button><span class="devices-count" id="devicesCount">0</span></div>
                 </div>
                 <div id="devicesList" class="devices-list"></div>
             </section>
@@ -1464,452 +738,229 @@
             projectId: "kkkk-b7d29",
             storageBucket: "kkkk-b7d29.firebasestorage.app",
             messagingSenderId: "302362191771",
-            appId: "1:302362191771:web:5d68cb250f7e2e5195e33e",
-            measurementId: "G-QK0B5XQ3XD"
+            appId: "1:302362191771:web:5d68cb250f7e2e5195e33e"
         };
 
-        let app, db;
+        let db;
         try {
-            app = firebase.initializeApp(firebaseConfig);
+            firebase.initializeApp(firebaseConfig);
             db = firebase.firestore();
-            console.log("✅ Firebase initialized successfully");
-        } catch (error) {
-            console.error("❌ Firebase initialization error:", error);
-        }
+        } catch(e) { console.error(e); }
         
         const appState = {
             students: [],
             tests: [],
             activeSessions: {},
             submittedStudents: {},
-            connectedDevices: {},
             currentTestId: '',
             currentStatus: '',
             searchQuery: '',
             isOnline: navigator.onLine,
-            isLiveMode: true,
-            realTimeListeners: {},
-            lastUpdate: null,
-            viewMode: 'grid'
+            refreshInterval: null,
+            lastUpdate: null
         };
 
         document.addEventListener('DOMContentLoaded', async function() {
-            console.log("🚀 بدء تحميل النظام...");
-            setupConnectionStatus();
             setupEventListeners();
-            setTimeout(async () => {
-                await loadInitialData();
-                hideLoading();
-            }, 1000);
-            setTimeout(() => {
-                if (appState.isOnline) setupRealTimeListeners();
-            }, 1500);
+            await loadData();
+            startAutoRefresh();
         });
 
-        function setupConnectionStatus() {
-            const statusElement = document.getElementById('connectionStatus');
-            const connectionText = document.getElementById('connectionText');
-            
-            function updateConnectionStatus() {
-                appState.isOnline = navigator.onLine;
-                if (appState.isOnline) {
-                    connectionText.textContent = 'متصل بالإنترنت';
-                    statusElement.className = 'connection-status connection-online';
-                    statusElement.style.display = 'flex';
-                    if (appState.isLiveMode) setTimeout(setupRealTimeListeners, 1000);
-                    showAlert('success', 'تم استعادة الاتصال', 'جاري مزامنة البيانات...');
-                } else {
-                    connectionText.textContent = 'غير متصل بالإنترنت';
-                    statusElement.className = 'connection-status connection-offline';
-                    statusElement.style.display = 'flex';
-                    stopRealTimeListeners();
-                    showAlert('warning', 'تم فقدان الاتصال', 'جاري العمل بالبيانات المحلية');
-                }
-            }
-            updateConnectionStatus();
-            window.addEventListener('online', updateConnectionStatus);
-            window.addEventListener('offline', updateConnectionStatus);
-        }
-
         function setupEventListeners() {
-            document.getElementById('refreshBtn').addEventListener('click', updateData);
-            document.getElementById('refreshDevicesBtn').addEventListener('click', loadConnectedDevices);
-            document.getElementById('liveToggleBtn').addEventListener('click', toggleLiveMode);
+            document.getElementById('refreshBtn').addEventListener('click', () => loadData(true));
+            document.getElementById('refreshDevicesBtn').addEventListener('click', () => loadDevicesData());
+            document.getElementById('liveToggleBtn').addEventListener('click', toggleAutoRefresh);
             document.getElementById('testFilter').addEventListener('change', function() {
                 appState.currentTestId = this.value;
                 updateTestInfo();
-                updateFilteredStudents();
-                renderStudents();
+                filterAndRender();
             });
             document.querySelectorAll('.status-filter').forEach(filter => {
                 filter.addEventListener('click', function() {
                     document.querySelectorAll('.status-filter').forEach(f => f.classList.remove('active'));
                     this.classList.add('active');
                     appState.currentStatus = this.dataset.status;
-                    updateFilteredStudents();
-                    renderStudents();
+                    filterAndRender();
                 });
             });
             document.getElementById('allStudentsBtn').addEventListener('click', showAllStudentsModal);
             document.getElementById('searchInput').addEventListener('input', function() {
                 appState.searchQuery = this.value.toLowerCase();
-                updateFilteredStudents();
-                renderStudents();
+                filterAndRender();
             });
-            document.querySelectorAll('.view-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    appState.viewMode = this.dataset.view;
-                    updateViewMode();
-                });
-            });
+            window.addEventListener('online', () => { appState.isOnline = true; showAlert('success', 'تم الاتصال', 'جاري التحديث'); loadData(); });
+            window.addEventListener('offline', () => { appState.isOnline = false; showAlert('warning', 'انقطاع الاتصال', 'جاري العرض من البيانات المخزنة'); });
         }
 
-        async function loadInitialData() {
-            try {
-                showLoading();
-                loadLocalData();
-                if (appState.isOnline) {
-                    await Promise.all([
-                        loadTestsFromFirebase(),
-                        loadStudentsFromFirebase(),
-                        loadActiveSessionsFromFirebase(),
-                        loadSubmittedStudentsFromFirebase(),
-                        loadConnectedDevices()
-                    ]);
-                }
-                updateTestsFilter();
-                updateStats();
-                updateFilteredStudents();
-                renderStudents();
-                updateLastUpdateTime();
-            } catch (error) {
-                console.error("❌ خطأ:", error);
-                showAlert('danger', 'خطأ', error.message);
+        function startAutoRefresh() {
+            if (appState.refreshInterval) clearInterval(appState.refreshInterval);
+            appState.refreshInterval = setInterval(() => {
+                if (appState.isOnline) loadData(false);
+            }, 30000);
+        }
+
+        function toggleAutoRefresh() {
+            if (appState.refreshInterval) {
+                clearInterval(appState.refreshInterval);
+                appState.refreshInterval = null;
+                document.getElementById('liveIcon').className = 'far fa-circle';
+                document.getElementById('liveText').textContent = 'متوقف';
+                showAlert('warning', 'التحديث التلقائي', 'تم إيقاف التحديث التلقائي');
+            } else {
+                startAutoRefresh();
+                document.getElementById('liveIcon').className = 'fas fa-circle';
+                document.getElementById('liveText').textContent = 'مباشر';
+                showAlert('success', 'التحديث التلقائي', 'تم تفعيل التحديث التلقائي');
             }
         }
 
-        function loadLocalData() {
-            try {
-                const testsData = localStorage.getItem('firebase_tests');
-                if (testsData) appState.tests = JSON.parse(testsData);
-                const studentsData = localStorage.getItem('firebase_students');
-                if (studentsData) appState.students = JSON.parse(studentsData);
-                const sessionsData = localStorage.getItem('firebase_activeSessions');
-                if (sessionsData) appState.activeSessions = JSON.parse(sessionsData);
-                const submittedData = localStorage.getItem('firebase_submittedStudents');
-                if (submittedData) appState.submittedStudents = JSON.parse(submittedData);
-                const devicesData = localStorage.getItem('firebase_connectedDevices');
-                if (devicesData) appState.connectedDevices = JSON.parse(devicesData);
-            } catch (error) {
-                console.error("❌ خطأ في تحميل البيانات المحلية:", error);
-            }
-        }
-
-        // تحميل الأجهزة المتصلة من activeSessions
-        async function loadConnectedDevices() {
-            if (!db || !appState.isOnline) {
-                showAlert('warning', 'غير متصل', 'لا يمكن تحميل بيانات الأجهزة بدون اتصال بالإنترنت');
+        async function loadData(showLoadingMsg = true) {
+            if (!appState.isOnline) {
+                showAlert('warning', 'غير متصل', 'استخدام البيانات المخزنة مؤقتاً');
                 return;
             }
             
+            if (showLoadingMsg) showAlert('info', 'جاري التحميل', 'يتم تحديث البيانات...');
+            
             try {
-                const snapshot = await db.collection('activeSessions').get();
-                const devicesByCivilId = {};
+                await Promise.all([
+                    loadTests(),
+                    loadStudents(),
+                    loadActiveSessions(),
+                    loadSubmitted()
+                ]);
                 
-                snapshot.forEach(doc => {
-                    const sessionData = doc.data();
-                    const civilId = sessionData.civilId;
-                    if (!civilId) return;
-                    
-                    if (!devicesByCivilId[civilId]) {
-                        devicesByCivilId[civilId] = {
-                            civilId: civilId,
-                            studentName: sessionData.studentName || 'طالب غير معروف',
-                            sessions: [],
-                            count: 0
-                        };
-                    }
-                    
-                    devicesByCivilId[civilId].sessions.push({
-                        sessionId: doc.id,
-                        testCode: sessionData.testCode,
-                        lastActivity: sessionData.lastActivity,
-                        loginTime: sessionData.loginTime
-                    });
-                    
-                    devicesByCivilId[civilId].count = devicesByCivilId[civilId].sessions.length;
-                });
+                await loadDevicesData();
                 
-                appState.connectedDevices = devicesByCivilId;
-                localStorage.setItem('firebase_connectedDevices', JSON.stringify(appState.connectedDevices));
-                console.log(`✅ تم تحميل بيانات الأجهزة المتصلة - ${Object.keys(appState.connectedDevices).length} طالب`);
-                
-                renderConnectedDevices();
-            } catch (error) {
-                console.error("❌ خطأ في تحميل الأجهزة:", error);
-                showAlert('danger', 'خطأ', 'فشل في تحميل بيانات الأجهزة المتصلة');
+                updateTestsFilter();
+                filterAndRender();
+                updateLastUpdateTime();
+                if (showLoadingMsg) showAlert('success', 'تم التحديث', 'تم تحديث البيانات بنجاح');
+            } catch(e) {
+                console.error(e);
+                showAlert('danger', 'خطأ', 'فشل تحديث البيانات');
             }
         }
 
-        // عرض الأجهزة المتصلة
-        function renderConnectedDevices() {
-            const devicesContainer = document.getElementById('devicesList');
-            const devicesCountSpan = document.getElementById('devicesCount');
+        async function loadTests() {
+            const snapshot = await db.collection('tests').where('sentToStudents', '==', true).get();
+            appState.tests = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+            localStorage.setItem('tests', JSON.stringify(appState.tests));
+        }
+
+        async function loadStudents() {
+            const snapshot = await db.collection('students').get();
+            appState.students = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+            localStorage.setItem('students', JSON.stringify(appState.students));
+        }
+
+        async function loadActiveSessions() {
+            const snapshot = await db.collection('activeSessions').get();
+            appState.activeSessions = {};
+            snapshot.forEach(doc => { appState.activeSessions[doc.id] = doc.data(); });
+            localStorage.setItem('activeSessions', JSON.stringify(appState.activeSessions));
+        }
+
+        async function loadSubmitted() {
+            const snapshot = await db.collection('submittedStudents').get();
+            appState.submittedStudents = {};
+            snapshot.forEach(doc => { appState.submittedStudents[doc.id] = doc.data(); });
+            localStorage.setItem('submitted', JSON.stringify(appState.submittedStudents));
+        }
+
+        async function loadDevicesData() {
+            // جلب جميع الجلسات النشطة وتجميعها حسب السجل المدني
+            const sessionsSnapshot = await db.collection('activeSessions').get();
+            const devicesMap = new Map();
             
-            const devicesArray = Object.values(appState.connectedDevices);
+            sessionsSnapshot.forEach(doc => {
+                const data = doc.data();
+                const civilId = data.civilId;
+                if (!civilId) return;
+                
+                if (!devicesMap.has(civilId)) {
+                    devicesMap.set(civilId, {
+                        civilId: civilId,
+                        studentName: data.studentName || 'غير معروف',
+                        sessions: [],
+                        count: 0
+                    });
+                }
+                
+                devicesMap.get(civilId).sessions.push({
+                    testCode: data.testCode,
+                    lastActivity: data.lastActivity,
+                    loginTime: data.loginTime
+                });
+                devicesMap.get(civilId).count = devicesMap.get(civilId).sessions.length;
+            });
+            
+            const devicesArray = Array.from(devicesMap.values());
             devicesArray.sort((a, b) => b.count - a.count);
             
-            devicesCountSpan.textContent = `${devicesArray.length} طالب`;
+            renderDevicesList(devicesArray);
+        }
+
+        function renderDevicesList(devices) {
+            const container = document.getElementById('devicesList');
+            const countSpan = document.getElementById('devicesCount');
             
-            if (devicesArray.length === 0) {
-                devicesContainer.innerHTML = `
-                    <div class="empty-state" style="padding: 40px 20px;">
-                        <div class="empty-icon"><i class="fas fa-laptop"></i></div>
-                        <h3>لا توجد أجهزة متصلة</h3>
-                        <p>لم يتم اكتشاف أي جلسات نشطة حالياً.</p>
-                    </div>
-                `;
+            countSpan.textContent = `${devices.length} طالب`;
+            
+            if (devices.length === 0) {
+                container.innerHTML = `<div class="empty-state"><div class="empty-icon"><i class="fas fa-laptop"></i></div><h3>لا توجد أجهزة متصلة</h3><p>لا توجد جلسات نشطة حالياً</p></div>`;
                 return;
             }
             
             let html = '';
-            devicesArray.forEach(device => {
+            devices.forEach(device => {
                 const isWarning = device.count > 1;
-                const warningClass = isWarning ? 'warning' : '';
-                
-                let sessionsDetails = '';
-                if (device.sessions && device.sessions.length > 0) {
-                    sessionsDetails = `
-                        <div style="font-size: 0.7rem; color: var(--gray-color); margin-top: 8px;">
-                            <i class="fas fa-code-branch"></i> الجلسات:
-                            ${device.sessions.map(s => `
-                                <div style="margin-right: 15px; margin-top: 3px;">
-                                    📱 اختبار ${s.testCode || 'غير محدد'} 
-                                    (${s.lastActivity ? new Date(s.lastActivity).toLocaleTimeString('ar-SA') : ''})
-                                </div>
-                            `).join('')}
-                        </div>
-                    `;
-                }
-                
                 html += `
-                    <div class="device-card ${warningClass}">
+                    <div class="device-card ${isWarning ? 'warning' : ''}">
                         <div class="device-info">
                             <div class="device-student-name">
-                                <i class="fas fa-user-graduate"></i> ${device.studentName}
-                                ${isWarning ? '<span class="device-warning-badge"><i class="fas fa-exclamation-triangle"></i> تحذير: عدة أجهزة</span>' : ''}
+                                <i class="fas fa-user"></i> ${device.studentName}
+                                ${isWarning ? '<span class="device-warning-badge"><i class="fas fa-exclamation-triangle"></i> عدة أجهزة</span>' : ''}
                             </div>
-                            <div class="device-student-id">السجل المدني: ${device.civilId}</div>
-                            ${sessionsDetails}
+                            <div class="device-student-id">السجل: ${device.civilId}</div>
+                            <div style="font-size: 0.7rem; color: gray; margin-top: 5px;">
+                                ${device.sessions.map(s => `📱 اختبار ${s.testCode || '?'} - ${s.lastActivity ? new Date(s.lastActivity).toLocaleTimeString('ar-SA') : ''}`).join('<br>')}
+                            </div>
                         </div>
                         <div class="device-count ${isWarning ? 'warning' : 'normal'}">
                             <i class="fas ${isWarning ? 'fa-exclamation-triangle' : 'fa-laptop'}"></i>
-                            <span>${device.count} ${device.count === 1 ? 'جهاز' : 'أجهزة'}</span>
+                            <span>${device.count} جهاز</span>
                         </div>
                     </div>
                 `;
             });
             
-            devicesContainer.innerHTML = html;
-        }
-
-        async function loadTestsFromFirebase() {
-            if (!db || !appState.isOnline) return;
-            try {
-                const snapshot = await db.collection('tests').where('sentToStudents', '==', true).get();
-                if (!snapshot.empty) {
-                    appState.tests = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                    localStorage.setItem('firebase_tests', JSON.stringify(appState.tests));
-                }
-            } catch (error) {
-                console.error("❌ خطأ:", error);
-                throw error;
-            }
-        }
-
-        async function loadStudentsFromFirebase() {
-            if (!db || !appState.isOnline) return;
-            try {
-                const snapshot = await db.collection('students').get();
-                if (!snapshot.empty) {
-                    appState.students = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-                    localStorage.setItem('firebase_students', JSON.stringify(appState.students));
-                }
-            } catch (error) {
-                console.error("❌ خطأ:", error);
-                throw error;
-            }
-        }
-
-        async function loadActiveSessionsFromFirebase() {
-            if (!db || !appState.isOnline) return;
-            try {
-                const snapshot = await db.collection('activeSessions').get();
-                appState.activeSessions = {};
-                snapshot.forEach(doc => {
-                    appState.activeSessions[doc.id] = doc.data();
-                });
-                localStorage.setItem('firebase_activeSessions', JSON.stringify(appState.activeSessions));
-            } catch (error) {
-                console.error("❌ خطأ:", error);
-                throw error;
-            }
-        }
-
-        async function loadSubmittedStudentsFromFirebase() {
-            if (!db || !appState.isOnline) return;
-            try {
-                const snapshot = await db.collection('submittedStudents').get();
-                appState.submittedStudents = {};
-                snapshot.forEach(doc => {
-                    appState.submittedStudents[doc.id] = doc.data();
-                });
-                localStorage.setItem('firebase_submittedStudents', JSON.stringify(appState.submittedStudents));
-            } catch (error) {
-                console.error("❌ خطأ:", error);
-                throw error;
-            }
-        }
-
-        function setupRealTimeListeners() {
-            if (!db || !appState.isLiveMode) return;
-            stopRealTimeListeners();
-            
-            // مستمع للجلسات النشطة (يستخدم أيضاً للأجهزة المتصلة)
-            appState.realTimeListeners.activeSessions = db.collection('activeSessions')
-                .onSnapshot((snapshot) => {
-                    // تحديث activeSessions
-                    appState.activeSessions = {};
-                    const devicesByCivilId = {};
-                    
-                    snapshot.forEach(doc => {
-                        const sessionData = doc.data();
-                        const civilId = sessionData.civilId;
-                        appState.activeSessions[doc.id] = sessionData;
-                        
-                        // تحديث الأجهزة المتصلة
-                        if (civilId) {
-                            if (!devicesByCivilId[civilId]) {
-                                devicesByCivilId[civilId] = {
-                                    civilId: civilId,
-                                    studentName: sessionData.studentName || 'طالب غير معروف',
-                                    sessions: [],
-                                    count: 0
-                                };
-                            }
-                            devicesByCivilId[civilId].sessions.push({
-                                sessionId: doc.id,
-                                testCode: sessionData.testCode,
-                                lastActivity: sessionData.lastActivity,
-                                loginTime: sessionData.loginTime
-                            });
-                            devicesByCivilId[civilId].count = devicesByCivilId[civilId].sessions.length;
-                        }
-                    });
-                    
-                    appState.connectedDevices = devicesByCivilId;
-                    localStorage.setItem('firebase_activeSessions', JSON.stringify(appState.activeSessions));
-                    localStorage.setItem('firebase_connectedDevices', JSON.stringify(appState.connectedDevices));
-                    
-                    renderConnectedDevices();
-                    updateFilteredStudents();
-                    renderStudents();
-                    updateStats();
-                    updateLastUpdateTime();
-                });
-            
-            appState.realTimeListeners.submittedStudents = db.collection('submittedStudents')
-                .onSnapshot((snapshot) => {
-                    appState.submittedStudents = {};
-                    snapshot.forEach(doc => {
-                        appState.submittedStudents[doc.id] = doc.data();
-                    });
-                    localStorage.setItem('firebase_submittedStudents', JSON.stringify(appState.submittedStudents));
-                    updateFilteredStudents();
-                    renderStudents();
-                    updateStats();
-                    updateLastUpdateTime();
-                });
-            
-            appState.realTimeListeners.students = db.collection('students')
-                .onSnapshot((snapshot) => {
-                    appState.students = [];
-                    snapshot.forEach(doc => {
-                        appState.students.push({ id: doc.id, ...doc.data() });
-                    });
-                    localStorage.setItem('firebase_students', JSON.stringify(appState.students));
-                    updateFilteredStudents();
-                    renderStudents();
-                    updateStats();
-                    updateLastUpdateTime();
-                    renderConnectedDevices(); // تحديث الأجهزة لتحديث أسماء الطلاب
-                });
-            
-            appState.realTimeListeners.tests = db.collection('tests')
-                .where('sentToStudents', '==', true)
-                .onSnapshot((snapshot) => {
-                    appState.tests = [];
-                    snapshot.forEach(doc => {
-                        appState.tests.push({ id: doc.id, ...doc.data() });
-                    });
-                    localStorage.setItem('firebase_tests', JSON.stringify(appState.tests));
-                    updateTestsFilter();
-                    updateTestInfo();
-                    updateLastUpdateTime();
-                });
-        }
-
-        function stopRealTimeListeners() {
-            Object.keys(appState.realTimeListeners).forEach(key => {
-                if (appState.realTimeListeners[key]) appState.realTimeListeners[key]();
-            });
-            appState.realTimeListeners = {};
-        }
-
-        function toggleLiveMode() {
-            appState.isLiveMode = !appState.isLiveMode;
-            const liveIcon = document.getElementById('liveIcon');
-            const liveText = document.getElementById('liveText');
-            
-            if (appState.isLiveMode) {
-                liveIcon.className = 'fas fa-circle';
-                liveText.textContent = 'المباشر: مفعل';
-                setupRealTimeListeners();
-                showAlert('success', 'المزامنة الحية', 'تم تفعيل المتابعة الحية');
-            } else {
-                liveIcon.className = 'far fa-circle';
-                liveText.textContent = 'المباشر: معطل';
-                stopRealTimeListeners();
-                showAlert('warning', 'المزامنة الحية', 'تم إيقاف المتابعة الحية');
-            }
+            container.innerHTML = html;
         }
 
         function updateTestsFilter() {
-            const testFilter = document.getElementById('testFilter');
-            const currentValue = testFilter.value;
-            testFilter.innerHTML = '<option value="">جميع الاختبارات</option>';
-            appState.tests.forEach(test => {
-                const option = document.createElement('option');
-                option.value = test.id;
-                option.textContent = `${test.name} - ${test.subject} (${test.code})`;
-                option.selected = (test.id === currentValue);
-                testFilter.appendChild(option);
+            const filter = document.getElementById('testFilter');
+            const current = filter.value;
+            filter.innerHTML = '<option value="">جميع الاختبارات</option>';
+            appState.tests.forEach(t => {
+                const opt = document.createElement('option');
+                opt.value = t.id;
+                opt.textContent = `${t.name} - ${t.subject}`;
+                if (opt.value === current) opt.selected = true;
+                filter.appendChild(opt);
             });
         }
 
         function updateTestInfo() {
-            const testInfo = document.getElementById('testInfo');
+            const info = document.getElementById('testInfo');
             const test = appState.tests.find(t => t.id === appState.currentTestId);
             if (test) {
                 document.getElementById('testSubject').textContent = test.subject || '-';
                 document.getElementById('testCode').textContent = test.code || '-';
                 document.getElementById('testTeacher').textContent = test.teacher || '-';
-                document.getElementById('testDuration').textContent = test.duration ? `${test.duration} دقيقة` : '-';
-                testInfo.classList.add('active');
+                info.classList.add('active');
             } else {
-                testInfo.classList.remove('active');
+                info.classList.remove('active');
             }
         }
 
@@ -1918,75 +969,52 @@
             if (testId) {
                 const test = appState.tests.find(t => t.id === testId);
                 if (!test || !test.code) return 'absent';
-                const sessionKey = `${civilId}_${test.code}`;
-                const submissionKey = `${civilId}_${test.code}`;
-                if (appState.activeSessions[sessionKey]) {
-                    const session = appState.activeSessions[sessionKey];
-                    const now = Date.now();
-                    const lastActivity = session.lastActivity ? 
-                        (typeof session.lastActivity === 'string' ? new Date(session.lastActivity).getTime() : session.lastActivity) : now;
-                    if (now - lastActivity < 10 * 60 * 1000) return 'testing';
-                }
-                if (appState.submittedStudents[submissionKey]) return 'finished';
+                const key = `${civilId}_${test.code}`;
+                if (appState.activeSessions[key]) return 'testing';
+                if (appState.submittedStudents[key]) return 'finished';
                 return 'absent';
             }
             for (const test of appState.tests) {
                 if (!test.code) continue;
-                const sessionKey = `${civilId}_${test.code}`;
-                const submissionKey = `${civilId}_${test.code}`;
-                if (appState.activeSessions[sessionKey]) {
-                    const session = appState.activeSessions[sessionKey];
-                    const now = Date.now();
-                    const lastActivity = session.lastActivity ? 
-                        (typeof session.lastActivity === 'string' ? new Date(session.lastActivity).getTime() : session.lastActivity) : now;
-                    if (now - lastActivity < 10 * 60 * 1000) return 'testing';
-                }
-                if (appState.submittedStudents[submissionKey]) return 'finished';
+                const key = `${civilId}_${test.code}`;
+                if (appState.activeSessions[key]) return 'testing';
+                if (appState.submittedStudents[key]) return 'finished';
             }
             return 'absent';
         }
 
-        function getStudentTestInfo(student, testId = null) {
+        function getStudentTest(student, testId = null) {
             if (testId) {
                 const test = appState.tests.find(t => t.id === testId);
-                if (!test || !test.code) return null;
-                const sessionKey = `${student.civilId}_${test.code}`;
-                const submissionKey = `${student.civilId}_${test.code}`;
-                return {
-                    test: test,
-                    session: appState.activeSessions[sessionKey],
-                    submission: appState.submittedStudents[submissionKey]
-                };
+                if (test && test.code) {
+                    const key = `${student.civilId}_${test.code}`;
+                    return { test, session: appState.activeSessions[key], submission: appState.submittedStudents[key] };
+                }
+                return null;
             }
             for (const test of appState.tests) {
                 if (!test.code) continue;
-                const sessionKey = `${student.civilId}_${test.code}`;
-                const submissionKey = `${student.civilId}_${test.code}`;
-                if (appState.activeSessions[sessionKey] || appState.submittedStudents[submissionKey]) {
-                    return {
-                        test: test,
-                        session: appState.activeSessions[sessionKey],
-                        submission: appState.submittedStudents[submissionKey]
-                    };
+                const key = `${student.civilId}_${test.code}`;
+                if (appState.activeSessions[key] || appState.submittedStudents[key]) {
+                    return { test, session: appState.activeSessions[key], submission: appState.submittedStudents[key] };
                 }
             }
             return null;
         }
 
-        function updateFilteredStudents() {
+        function filterAndRender() {
             updateStats();
+            renderStudents();
         }
 
         function updateStats() {
             let total = 0, testing = 0, finished = 0, absent = 0;
-            appState.students.forEach(student => {
-                const status = getStudentStatus(student, appState.currentTestId);
+            appState.students.forEach(s => {
+                const status = getStudentStatus(s, appState.currentTestId);
                 total++;
-                switch(status) {
-                    case 'testing': testing++; break;
-                    case 'finished': finished++; break;
-                    case 'absent': absent++; break;
-                }
+                if (status === 'testing') testing++;
+                else if (status === 'finished') finished++;
+                else absent++;
             });
             document.getElementById('totalStudentsStat').textContent = total;
             document.getElementById('testingStudentsStat').textContent = testing;
@@ -1996,46 +1024,21 @@
             document.getElementById('countTesting').textContent = testing;
             document.getElementById('countFinished').textContent = finished;
             document.getElementById('countAbsent').textContent = absent;
-            updateLiveTestingSection();
-        }
-
-        function updateLiveTestingSection() {
+            
+            // تحديث قسم المختبرين حالياً
+            const testingStudents = appState.students.filter(s => getStudentStatus(s, appState.currentTestId) === 'testing');
             const liveSection = document.getElementById('liveSection');
-            const liveTestingCount = document.getElementById('liveTestingCount');
+            const liveCount = document.getElementById('liveTestingCount');
             const liveContainer = document.getElementById('liveTestingStudents');
-            const testingStudents = appState.students.filter(student => 
-                getStudentStatus(student, appState.currentTestId) === 'testing'
-            );
             
             if (testingStudents.length > 0) {
                 liveSection.style.display = 'block';
-                liveTestingCount.textContent = `${testingStudents.length} طالب`;
+                liveCount.textContent = `${testingStudents.length} طالب`;
                 let html = '';
-                testingStudents.slice(0, 6).forEach(student => {
-                    const testInfo = getStudentTestInfo(student, appState.currentTestId);
-                    const firstLetter = student.name ? student.name.charAt(0) : '?';
-                    html += `
-                        <div class="live-student-card">
-                            <div class="live-student-avatar">${firstLetter}</div>
-                            <div class="live-student-info">
-                                <div class="live-student-name">${student.name || 'غير معروف'}</div>
-                                <div class="live-student-details">
-                                    <div>${student.civilId || 'بدون سجل'}</div>
-                                    <div>${testInfo?.test?.name || 'اختبار غير محدد'}</div>
-                                </div>
-                                <div class="live-student-time">يختبر الآن</div>
-                            </div>
-                        </div>
-                    `;
+                testingStudents.slice(0, 6).forEach(s => {
+                    const test = getStudentTest(s, appState.currentTestId);
+                    html += `<div class="live-student-card"><div class="live-student-avatar">${s.name?.[0] || '?'}</div><div class="live-student-info"><div class="live-student-name">${s.name || 'غير معروف'}</div><div class="live-student-details">${s.civilId || ''}<br>${test?.test?.name || ''}</div><div class="live-student-time">يختبر الآن</div></div></div>`;
                 });
-                if (testingStudents.length > 6) {
-                    html += `<div class="live-student-card" style="justify-content: center; background: rgba(67, 97, 238, 0.05);">
-                        <div class="live-student-info" style="text-align: center;">
-                            <div class="live-student-name">+${testingStudents.length - 6} طالب</div>
-                            <div class="live-student-details">يختبرون حالياً</div>
-                        </div>
-                    </div>`;
-                }
                 liveContainer.innerHTML = html;
             } else {
                 liveSection.style.display = 'none';
@@ -2044,119 +1047,60 @@
 
         function renderStudents() {
             const container = document.getElementById('studentsGrid');
-            const filteredCount = document.getElementById('filteredStudentsCount');
-            
-            if (appState.students.length === 0) {
-                container.innerHTML = `<div class="empty-state"><div class="empty-icon"><i class="fas fa-user-graduate"></i></div><h3>لا توجد بيانات طلاب</h3><p>لم يتم العثور على أي طالب مسجل في النظام.</p></div>`;
-                filteredCount.textContent = '0 طالب';
-                return;
-            }
-            
-            let filteredStudents = [...appState.students];
+            let filtered = [...appState.students];
             
             if (appState.currentTestId) {
                 const test = appState.tests.find(t => t.id === appState.currentTestId);
                 if (test && test.code) {
-                    filteredStudents = filteredStudents.filter(student => {
-                        const sessionKey = `${student.civilId}_${test.code}`;
-                        const submissionKey = `${student.civilId}_${test.code}`;
-                        return appState.activeSessions[sessionKey] || appState.submittedStudents[submissionKey];
+                    filtered = filtered.filter(s => {
+                        const key = `${s.civilId}_${test.code}`;
+                        return appState.activeSessions[key] || appState.submittedStudents[key];
                     });
                 } else {
-                    filteredStudents = [];
+                    filtered = [];
                 }
             }
             
             if (appState.currentStatus) {
-                filteredStudents = filteredStudents.filter(student => 
-                    getStudentStatus(student, appState.currentTestId) === appState.currentStatus
-                );
+                filtered = filtered.filter(s => getStudentStatus(s, appState.currentTestId) === appState.currentStatus);
             }
             
             if (appState.searchQuery) {
-                filteredStudents = filteredStudents.filter(student => 
-                    (student.name && student.name.toLowerCase().includes(appState.searchQuery)) ||
-                    (student.civilId && student.civilId.includes(appState.searchQuery))
+                filtered = filtered.filter(s => 
+                    (s.name && s.name.toLowerCase().includes(appState.searchQuery)) ||
+                    (s.civilId && s.civilId.includes(appState.searchQuery))
                 );
             }
             
-            filteredCount.textContent = `${filteredStudents.length} طالب`;
+            document.getElementById('filteredStudentsCount').textContent = `${filtered.length} طالب`;
             
-            if (filteredStudents.length === 0) {
-                container.innerHTML = `<div class="empty-state"><div class="empty-icon"><i class="fas fa-search"></i></div><h3>لا توجد نتائج</h3><p>لم يتم العثور على طلاب مطابقين لمعايير البحث.</p></div>`;
+            if (filtered.length === 0) {
+                container.innerHTML = `<div class="empty-state"><div class="empty-icon"><i class="fas fa-search"></i></div><h3>لا توجد نتائج</h3></div>`;
                 return;
             }
             
-            filteredStudents.sort((a, b) => {
-                const statusA = getStudentStatus(a, appState.currentTestId);
-                const statusB = getStudentStatus(b, appState.currentTestId);
-                const statusOrder = { testing: 1, finished: 2, absent: 3 };
-                if (statusOrder[statusA] !== statusOrder[statusB]) return statusOrder[statusA] - statusOrder[statusB];
-                return (a.name || '').localeCompare(b.name || '');
+            filtered.sort((a,b) => {
+                const order = { testing: 1, finished: 2, absent: 3 };
+                return order[getStudentStatus(a, appState.currentTestId)] - order[getStudentStatus(b, appState.currentTestId)] || (a.name || '').localeCompare(b.name || '');
             });
             
             let html = '';
-            filteredStudents.forEach(student => {
-                const status = getStudentStatus(student, appState.currentTestId);
-                const testInfo = getStudentTestInfo(student, appState.currentTestId);
-                const firstLetter = student.name ? student.name.charAt(0) : '?';
+            filtered.forEach(s => {
+                const status = getStudentStatus(s, appState.currentTestId);
+                const test = getStudentTest(s, appState.currentTestId);
                 const statusText = { testing: 'يختبر حالياً', finished: 'أنهى الاختبار', absent: 'غائب' }[status];
-                
-                let timeInfo = '';
-                if (status === 'testing' && testInfo?.session) {
-                    const lastActivity = testInfo.session.lastActivity;
-                    if (lastActivity) {
-                        const diffMinutes = Math.floor((new Date() - new Date(lastActivity)) / 60000);
-                        if (diffMinutes < 1) timeInfo = 'الآن';
-                        else if (diffMinutes < 60) timeInfo = `منذ ${diffMinutes} دقيقة`;
-                        else timeInfo = `منذ ${Math.floor(diffMinutes / 60)} ساعة`;
-                    }
-                } else if (status === 'finished' && testInfo?.submission?.submittedAt) {
-                    timeInfo = new Date(testInfo.submission.submittedAt).toLocaleTimeString('ar-SA');
-                }
                 
                 html += `
                     <div class="student-card">
                         <div class="student-status-bar student-status-${status}"></div>
                         <div class="student-card-content">
                             <div class="student-header">
-                                <div class="student-avatar">${firstLetter}</div>
-                                <div class="student-main-info">
-                                    <div class="student-name">${student.name || 'غير معروف'}</div>
-                                    <div class="student-id">${student.civilId || 'بدون سجل'}</div>
-                                </div>
-                            </div>
-                            <div class="student-details">
-                                <div class="student-detail">
-                                    <div class="detail-icon"><i class="fas fa-graduation-cap"></i></div>
-                                    <div class="detail-content">
-                                        <div class="detail-label">الصف الدراسي</div>
-                                        <div class="detail-value">${student.grade || 'غير محدد'}</div>
-                                    </div>
-                                </div>
-                                ${testInfo?.test ? `
-                                <div class="student-detail">
-                                    <div class="detail-icon"><i class="fas fa-book"></i></div>
-                                    <div class="detail-content">
-                                        <div class="detail-label">الاختبار</div>
-                                        <div class="detail-value">${testInfo.test.name}</div>
-                                    </div>
-                                </div>
-                                <div class="student-detail">
-                                    <div class="detail-icon"><i class="fas fa-hashtag"></i></div>
-                                    <div class="detail-content">
-                                        <div class="detail-label">كود الاختبار</div>
-                                        <div class="detail-value">${testInfo.test.code}</div>
-                                    </div>
-                                </div>
-                                ` : ''}
+                                <div class="student-avatar">${s.name?.[0] || '?'}</div>
+                                <div><div class="student-name">${s.name || 'غير معروف'}</div><div class="student-id">${s.civilId || ''}</div></div>
                             </div>
                             <div class="student-status ${status}">
-                                <div class="status-content">
-                                    <i class="fas ${status === 'testing' ? 'fa-clock' : status === 'finished' ? 'fa-check-circle' : 'fa-user-times'}"></i>
-                                    <span>${statusText}</span>
-                                </div>
-                                ${timeInfo ? `<div class="status-time">${timeInfo}</div>` : ''}
+                                <div class="status-content"><i class="fas ${status === 'testing' ? 'fa-clock' : status === 'finished' ? 'fa-check-circle' : 'fa-user-times'}"></i><span>${statusText}</span></div>
+                                ${test?.test ? `<div class="status-time">${test.test.name}</div>` : ''}
                             </div>
                         </div>
                     </div>
@@ -2165,142 +1109,76 @@
             container.innerHTML = html;
         }
 
-        function updateViewMode() {
-            const container = document.getElementById('studentsGrid');
-            if (appState.viewMode === 'list') {
-                container.classList.add('list-view');
-                container.classList.remove('students-grid');
-                container.style.gridTemplateColumns = '1fr';
-            } else {
-                container.classList.remove('list-view');
-                container.classList.add('students-grid');
-                container.style.gridTemplateColumns = 'repeat(auto-fill, minmax(350px, 1fr))';
-            }
-        }
-
-        async function updateData() {
-            if (!appState.isOnline) {
-                showAlert('warning', 'غير متصل', 'لا يمكن تحديث البيانات بدون اتصال بالإنترنت');
-                return;
-            }
-            try {
-                const refreshBtn = document.getElementById('refreshBtn');
-                const originalHTML = refreshBtn.innerHTML;
-                refreshBtn.disabled = true;
-                refreshBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التحديث...';
-                
-                await Promise.all([
-                    loadTestsFromFirebase(),
-                    loadStudentsFromFirebase(),
-                    loadActiveSessionsFromFirebase(),
-                    loadSubmittedStudentsFromFirebase(),
-                    loadConnectedDevices()
-                ]);
-                
-                updateTestsFilter();
-                updateTestInfo();
-                updateFilteredStudents();
-                renderStudents();
-                updateLastUpdateTime();
-                
-                refreshBtn.disabled = false;
-                refreshBtn.innerHTML = originalHTML;
-                showAlert('success', 'تم التحديث', 'تم تحديث البيانات بنجاح');
-            } catch (error) {
-                showAlert('danger', 'خطأ', error.message);
-                document.getElementById('refreshBtn').disabled = false;
-                document.getElementById('refreshBtn').innerHTML = '<i class="fas fa-sync-alt"></i><span>تحديث البيانات</span>';
-            }
-        }
-
         function updateLastUpdateTime() {
             const now = new Date();
-            document.getElementById('lastUpdateTime').textContent = `${now.toLocaleDateString('ar-SA')} - ${now.toLocaleTimeString('ar-SA')}`;
+            document.getElementById('lastUpdateTime').textContent = `${now.getHours().toString().padStart(2,'0')}:${now.getMinutes().toString().padStart(2,'0')}:${now.getSeconds().toString().padStart(2,'0')}`;
         }
 
         function showAlert(type, title, message) {
-            const alert = document.getElementById('alert');
-            const alertIcon = document.getElementById('alertIcon');
-            const alertTitle = document.getElementById('alertTitle');
-            const alertMessage = document.getElementById('alertMessage');
+            const alertDiv = document.getElementById('alert');
+            const icon = document.getElementById('alertIcon');
+            const titleEl = document.getElementById('alertTitle');
+            const msgEl = document.getElementById('alertMessage');
             
-            alert.className = `alert alert-${type}`;
-            alertTitle.textContent = title;
-            alertMessage.textContent = message;
-            alertIcon.className = type === 'success' ? 'fas fa-check-circle' : type === 'warning' ? 'fas fa-exclamation-triangle' : 'fas fa-times-circle';
-            alert.classList.add('show');
-            setTimeout(() => alert.classList.remove('show'), 5000);
-        }
-
-        function showLoading() {
-            document.getElementById('loadingOverlay').style.display = 'flex';
-        }
-        
-        function hideLoading() {
-            document.getElementById('loadingOverlay').style.display = 'none';
+            alertDiv.className = `alert alert-${type}`;
+            icon.className = type === 'success' ? 'fas fa-check-circle' : type === 'warning' ? 'fas fa-exclamation-triangle' : 'fas fa-times-circle';
+            titleEl.textContent = title;
+            msgEl.textContent = message;
+            alertDiv.classList.add('show');
+            setTimeout(() => alertDiv.classList.remove('show'), 3000);
         }
 
         function showAllStudentsModal() {
-            const modalHTML = `
-                <div class="modal-overlay" id="allStudentsModal">
-                    <div class="modal-content">
-                        <div class="modal-header">
+            const modalHtml = `
+                <div class="modal-overlay" id="studentsModal" style="position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;z-index:2000;">
+                    <div style="background:white;border-radius:16px;width:90%;max-width:1200px;max-height:80vh;overflow:auto;">
+                        <div style="padding:20px;border-bottom:1px solid #eee;display:flex;justify-content:space-between;">
                             <h3><i class="fas fa-users"></i> جميع الطلاب في الاختبارات</h3>
-                            <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
+                            <button onclick="document.getElementById('studentsModal').remove()" style="background:none;border:none;font-size:24px;cursor:pointer;">&times;</button>
                         </div>
-                        <div class="modal-body">
-                            <div class="table-container">
-                                <table class="students-table">
-                                    <thead><tr><th>اسم الطالب</th>${appState.tests.map(test => `<th>${test.name}<br><small>${test.code}</small></th>`).join('')}</tr></thead>
-                                    <tbody id="allStudentsTableBody"></tbody>
-                                </table>
-                            </div>
+                        <div style="padding:20px;overflow-x:auto;">
+                            <table style="width:100%;border-collapse:collapse;">
+                                <thead><tr><th style="padding:12px;text-align:right;">الطالب</th>${appState.tests.map(t => `<th style="padding:12px;">${t.name}<br><small>${t.code}</small></th>`).join('')}</tr></thead>
+                                <tbody>
+                                    ${appState.students.map(s => `
+                                        <tr>
+                                            <td style="padding:12px;border-bottom:1px solid #eee;"><strong>${s.name || 'غير معروف'}</strong><br><small>${s.civilId || ''}</small></td>
+                                            ${appState.tests.map(t => {
+                                                const key = `${s.civilId}_${t.code}`;
+                                                const isActive = appState.activeSessions[key];
+                                                const isSubmitted = appState.submittedStudents[key];
+                                                let icon = '<i class="fas fa-times-circle"></i>', color = 'danger';
+                                                if (isSubmitted) { icon = '<i class="fas fa-check-circle"></i>'; color = 'success'; }
+                                                else if (isActive) { icon = '<i class="fas fa-clock"></i>'; color = 'info'; }
+                                                return `<td style="padding:12px;text-align:center;border-bottom:1px solid #eee;"><div style="color:var(--${color}-color);font-size:20px;">${icon}</div></td>`;
+                                            }).join('')}
+                                        </tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
                         </div>
-                        <div class="modal-footer"><button class="btn btn-primary" onclick="closeModal()"><i class="fas fa-times"></i> إغلاق</button></div>
                     </div>
                 </div>
             `;
-            document.body.insertAdjacentHTML('beforeend', modalHTML);
-            
-            const tableBody = document.getElementById('allStudentsTableBody');
-            if (appState.students.length === 0) {
-                tableBody.innerHTML = `<tr><td colspan="${appState.tests.length + 1}" style="text-align:center;padding:40px;"><h3>لا توجد بيانات طلاب</h3></td></tr>`;
-                return;
-            }
-            
-            let html = '';
-            appState.students.forEach(student => {
-                html += `<tr><td><strong>${student.name || 'غير معروف'}</strong><br><small>${student.civilId || ''}</small></td>`;
-                appState.tests.forEach(test => {
-                    const sessionKey = `${student.civilId}_${test.code}`;
-                    const submissionKey = `${student.civilId}_${test.code}`;
-                    const hasSession = appState.activeSessions[sessionKey];
-                    const hasSubmission = appState.submittedStudents[submissionKey];
-                    let icon = '', color = '', tooltip = '';
-                    if (hasSubmission) { icon = '<i class="fas fa-check-circle"></i>'; color = 'success'; tooltip = 'أنهى الاختبار'; }
-                    else if (hasSession) {
-                        const session = appState.activeSessions[sessionKey];
-                        const now = Date.now();
-                        const lastActivity = session.lastActivity ? (typeof session.lastActivity === 'string' ? new Date(session.lastActivity).getTime() : session.lastActivity) : now;
-                        if (now - lastActivity < 10 * 60 * 1000) { icon = '<i class="fas fa-clock"></i>'; color = 'info'; tooltip = 'يختبر حالياً'; }
-                        else { icon = '<i class="fas fa-times-circle"></i>'; color = 'danger'; tooltip = 'لم ينه الاختبار'; }
-                    } else { icon = '<i class="fas fa-times-circle"></i>'; color = 'danger'; tooltip = 'لم يبدأ الاختبار'; }
-                    html += `<td style="text-align:center;"><div class="test-status-icon ${color}" title="${tooltip}">${icon}</div></td>`;
-                });
-                html += `</tr>`;
-            });
-            tableBody.innerHTML = html;
+            document.body.insertAdjacentHTML('beforeend', modalHtml);
         }
 
-        function closeModal() {
-            const modal = document.getElementById('allStudentsModal');
-            if (modal) modal.remove();
+        // تحميل البيانات المخزنة محلياً أولاً
+        function loadCachedData() {
+            try {
+                const tests = localStorage.getItem('tests');
+                if (tests) appState.tests = JSON.parse(tests);
+                const students = localStorage.getItem('students');
+                if (students) appState.students = JSON.parse(students);
+                const sessions = localStorage.getItem('activeSessions');
+                if (sessions) appState.activeSessions = JSON.parse(sessions);
+                const submitted = localStorage.getItem('submitted');
+                if (submitted) appState.submittedStudents = JSON.parse(submitted);
+            } catch(e) {}
         }
 
-        window.updateData = updateData;
-        window.toggleLiveMode = toggleLiveMode;
-        window.showAllStudentsModal = showAllStudentsModal;
-        window.closeModal = closeModal;
+        loadCachedData();
+        document.getElementById('loadingOverlay').style.display = 'none';
     </script>
 </body>
 </html>
